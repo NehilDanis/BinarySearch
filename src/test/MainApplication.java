@@ -7,7 +7,7 @@ public class MainApplication {
 
 	public static void main(String[] args) {
 		String [] a={"Michelle","Jaime","Rachael","Jon","Jesse","Joe","Raquel"
-				,"Jennifer","Lorraine","Lora","Tony","Melissa","Rachel"};
+				,"Jennifer","Lorraine","Lora","Tony","Melissa","Rachel","Tom"};
 		List<String> alist=new ArrayList<String>();
 		for(int i=0;i<a.length;i++){
 			alist.add(a[i]);
@@ -19,8 +19,8 @@ public class MainApplication {
 		}
 		
 //		System.out.println(BinarySearch(alist, "To"));
-		int mid=BinarySearch(alist, "Jo");
-		linearSearch(alist, "Jo", mid);
+		int mid=BinarySearch(alist, "To");
+		linearSearch(alist, "To", mid);
 		
 	}
 	
@@ -63,16 +63,22 @@ public class MainApplication {
 	        	}
 	        	
 	        }
-	        else if(array1==cmp){
+	        else if(array1.equalsIgnoreCase(cmp)){
+	        	while(index<a.size()){
+	        		String a1=a.get(index);
+	        		a1=a1.substring(0, cmp.length());
+	        		if(!a1.equalsIgnoreCase(cmp)){
+	        			break;
+	        		}
+	        		System.out.println(a.get(index));
+	        		index++;
+	        	}
 	        	
 	        }
 			
 		}
 	}
 
-	private static boolean less(String cmp, String array) {
-		return false;
-	}
 
 	private static int compareTo(String cmp, String array){
 		if(cmp.compareToIgnoreCase(array)<0)return -1;
